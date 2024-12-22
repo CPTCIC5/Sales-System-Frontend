@@ -121,14 +121,14 @@ const MainContacts = () => {
     }
   };
 
-  const fetchGroups = async () => {
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      setGroups(DUMMY_GROUPS);
-    } catch (error) {
-      toast.error('Error fetching groups');
-    }
-  };
+  // const fetchGroups = async () => {
+  //   try {
+  //     await new Promise(resolve => setTimeout(resolve, 1000));
+  //     setGroups(DUMMY_GROUPS);
+  //   } catch (error) {
+  //     toast.error('Error fetching groups');
+  //   }
+  // };
 
   const fetchTags = async () => {
     try {
