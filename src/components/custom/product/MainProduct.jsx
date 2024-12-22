@@ -458,28 +458,14 @@ const MainProduct = () => {
           {/* Sidebar */}
           <div className="col-span-3">
             <div className="bg-white rounded-lg shadow-sm p-6 space-y-8">
-              {/* Categories Section */}
+              {/* Categories Section - Header only */}
               <div>
                 <div className="p-3 rounded-lg">
                   <h3 className="text-lg font-medium text-gray-900">Categories</h3>
                 </div>
-                <ul className="mt-3 space-y-2">
-                  {categories.map(category => (
-                    <motion.li 
-                      key={category.id} 
-                      className="flex items-center justify-between p-2 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-                      whileHover={{ x: 4 }}
-                    >
-                      <span className="text-gray-700">{category.name}</span>
-                      <span className="text-xs bg-gray-100 px-2 py-1 rounded-full">
-                        {category.products?.length || 0}
-                      </span>
-                    </motion.li>
-                  ))}
-                </ul>
               </div>
 
-              {/* Tags Section - Removed Manage button */}
+              {/* Tags Section */}
               <div>
                 <div className="p-3 rounded-lg">
                   <h3 className="text-lg font-medium text-gray-900">Tags</h3>
@@ -513,9 +499,6 @@ const MainProduct = () => {
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Category
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Stock
                     </th>
                     <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Actions
@@ -554,9 +537,6 @@ const MainProduct = () => {
                           {product.category}
                         </span>
                       </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-900">{product.stock} units</div>
-                      </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <div className="flex justify-end space-x-3">
                           <button
@@ -590,7 +570,7 @@ const MainProduct = () => {
                   ))}
                   {filteredProducts.length === 0 && (
                     <tr>
-                      <td colSpan="5" className="px-6 py-4 text-center text-gray-500">
+                      <td colSpan="4" className="px-6 py-4 text-center text-gray-500">
                         No products found matching your search criteria
                       </td>
                     </tr>

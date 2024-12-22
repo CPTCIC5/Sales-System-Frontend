@@ -537,11 +537,7 @@ const MainContacts = () => {
       </div>
 
       {/* Pagination */}
-      <div className="mt-6 flex items-center justify-between">
-        <div className="text-sm text-gray-700">
-          Showing {indexOfFirstItem + 1} to {Math.min(indexOfLastItem, filteredContacts.length)} of{' '}
-          {filteredContacts.length} results
-        </div>
+      <div className="mt-6 flex items-center justify-end">
         <div className="flex space-x-2">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
             <button

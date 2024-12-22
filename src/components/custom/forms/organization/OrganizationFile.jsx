@@ -29,14 +29,20 @@ const OrganizationFile = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       toast.success('API configuration saved successfully!');
       
+      // Skip to next page even if fields are empty
       setTimeout(() => {
         router.push('/watsapp-no');
       }, 1000);
       
     } catch (error) {
       toast.error('Failed to save API configuration');
+    } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleSkip = () => {
+    router.push('/watsapp-no');
   };
 
   const containerVariants = {
@@ -66,10 +72,10 @@ const OrganizationFile = () => {
       >
         <motion.div variants={itemVariants} className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            API Configuration
+            API Configuration (Optional)
           </h2>
           <p className="text-gray-600">
-            Configure your organization's API settings
+            Configure your organization's API settings or skip this step
           </p>
         </motion.div>
 
@@ -80,12 +86,11 @@ const OrganizationFile = () => {
         >
           <motion.div variants={itemVariants} className="space-y-2">
             <label className="block text-sm font-medium text-gray-700">
-              API URL
+              API URL (Optional)
             </label>
             <input
               type="url"
               name="api_url"
-              required
               className="w-full px-4 py-3 rounded-lg border border-gray-300 
                 bg-gray-50 text-gray-900 
                 focus:ring-2 focus:ring-indigo-500 focus:border-transparent 
@@ -97,7 +102,7 @@ const OrganizationFile = () => {
               onChange={handleChange}
             />
             <p className="text-sm text-gray-500 mt-1">
-              Enter the base URL for your API endpoint
+              Enter the base URL for your API endpoint (if applicable)
             </p>
           </motion.div>
 
@@ -114,7 +119,7 @@ const OrganizationFile = () => {
                 focus:bg-white
                 transition duration-200 ease-in-out
                 placeholder:text-gray-500"
-              placeholder="Enter your API key (optional)"
+              placeholder="Enter your API key (if applicable)"
               value={formData.api_key}
               onChange={handleChange}
             />
@@ -125,7 +130,7 @@ const OrganizationFile = () => {
 
           <motion.div
             variants={itemVariants}
-            className="pt-4"
+            className="pt-4 space-y-4"
           >
             <motion.button
               whileHover={{ scale: 1.01 }}
@@ -149,7 +154,7 @@ const OrganizationFile = () => {
                 />
               ) : (
                 <>
-                  <span>Save Configuration</span>
+                  <span>Save & Continue</span>
                   <svg 
                     className="w-5 h-5" 
                     fill="none" 
@@ -166,6 +171,30 @@ const OrganizationFile = () => {
                 </>
               )}
             </motion.button>
+
+            <motion.button
+              type="button"
+              onClick={handleSkip}
+              className="w-full py-3 px-6 rounded-lg text-gray-600 font-medium
+                bg-gray-100 hover:bg-gray-200
+                transition-all duration-200 ease-in-out
+                flex items-center justify-center space-x-2"
+            >
+              <span>Skip this step</span>
+              <svg 
+                className="w-5 h-5" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M9 5l7 7-7 7" 
+                />
+              </svg>
+            </motion.button>
           </motion.div>
 
           <motion.div 
@@ -173,7 +202,7 @@ const OrganizationFile = () => {
             className="mt-4 text-sm text-gray-500 text-center"
           >
             <p>
-              Make sure to keep your API key secure and never share it publicly
+              You can always configure these settings later from your organization profile
             </p>
           </motion.div>
         </motion.form>
