@@ -33,7 +33,7 @@ const CreateOrganization = () => {
       
       // Redirect to OrganizationFile page after successful creation
       setTimeout(() => {
-        router.push('/organizationfile');
+        router.push('/dashboard/organizationfile');
       }, 1000); // Small delay to show the success message
       
     } catch (error) {
@@ -60,12 +60,12 @@ const CreateOrganization = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="w-full max-w-2xl mx-auto">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="max-w-lg mx-auto"
+        className="w-full"
       >
         <motion.div variants={itemVariants} className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">

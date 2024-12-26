@@ -31,7 +31,7 @@ const OrganizationFile = () => {
       
       // Skip to next page even if fields are empty
       setTimeout(() => {
-        router.push('/watsapp-no');
+        router.push('/dashboard/watsapp-no');
       }, 1000);
       
     } catch (error) {
@@ -42,7 +42,7 @@ const OrganizationFile = () => {
   };
 
   const handleSkip = () => {
-    router.push('/watsapp-no');
+    router.push('/dashboard/watsapp-no');
   };
 
   const containerVariants = {
@@ -63,12 +63,12 @@ const OrganizationFile = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="w-full max-w-2xl mx-auto">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="max-w-lg mx-auto"
+        className="w-full"
       >
         <motion.div variants={itemVariants} className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">

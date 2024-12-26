@@ -222,7 +222,7 @@ const MainContacts = () => {
   };
 
   const handleNavigateToGroups = () => {
-    router.push('/groups');
+    router.push('/dashboard/groups');
   };
 
   const indexOfLastItem = currentPage * itemsPerPage;
