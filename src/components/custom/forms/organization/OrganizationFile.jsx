@@ -29,9 +29,9 @@ const OrganizationFile = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       toast.success('API configuration saved successfully!');
       
-      // Skip to next page even if fields are empty
+      // Updated redirect path to the correct route
       setTimeout(() => {
-        router.push('/dashboard/watsapp-no');
+        router.push('/watsapp-no');
       }, 1000);
       
     } catch (error) {
@@ -42,7 +42,8 @@ const OrganizationFile = () => {
   };
 
   const handleSkip = () => {
-    router.push('/dashboard/watsapp-no');
+    // Updated redirect path here as well
+    router.push('/watsapp-no');
   };
 
   const containerVariants = {
@@ -63,12 +64,12 @@ const OrganizationFile = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="w-full"
+        className="max-w-lg mx-auto"
       >
         <motion.div variants={itemVariants} className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">

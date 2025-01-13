@@ -31,9 +31,9 @@ const CreateOrganization = () => {
       await new Promise(resolve => setTimeout(resolve, 1000));
       toast.success('Organization created successfully!');
       
-      // Redirect to OrganizationFile page after successful creation
+      // Updated redirect path to match the correct route
       setTimeout(() => {
-        router.push('/dashboard/organizationfile');
+        router.push('/organizationfile');
       }, 1000); // Small delay to show the success message
       
     } catch (error) {
@@ -60,12 +60,12 @@ const CreateOrganization = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="w-full"
+        className="max-w-lg mx-auto"
       >
         <motion.div variants={itemVariants} className="text-center mb-12">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
